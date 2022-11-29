@@ -6,7 +6,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27018)
+client = MongoClient('172.16.42.96', 27018)
 
 dbnames = client.list_database_names()
 
