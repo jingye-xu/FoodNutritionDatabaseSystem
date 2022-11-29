@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Nutrition Info</title>
+</head>
+<body>
+    <h1>Food Nutrition Info</h1>
+    <hr>
+    <div class="content">
+    <form method="post">
+        <input type="text" name="content" placeholder="Food name"></input>
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+
+    <table>
+        <tr>
+          <th>Food code</th>
+          <th>Main food description</th>
+          <th>WWEIA number</th>
+          <th>WWEIA description</th>
+          <th>Energy (kcal)</th>
+          <th>Protein (g)</th>
+          <th>Carbohydrate (g)</th>
+          <th>Total Sugars (g)</th>
+          <th>Total Fiber (g)</th>
+          <th>Total Fat (g)</th>
+          <th>Water (g)</th>
+        </tr>
+    {% for food in foods %}
+        <tr>
+            <th>{{ food["Food code"] }}</th>
+            <th>{{ food["Main food description"] }}</th>
+            <th>{{ food["WWEIA number"] }}</th>
+            <th>{{ food["WWEIA description"] }}</th>
+            <th>{{ food["Energy (kcal)"] }}</th>
+            <th>{{ food["Protein (g)"] }}</th>
+            <th>{{ food["Carbohydrate (g)"] }}</th>
+            <th>{{ food["Total Sugars (g)"] }}</th>
+            <th>{{ food["Total Fiber (g)"] }}</th>
+            <th>{{ food["Total Fat (g)"] }}</th>
+            <th>{{ food["Water (g)"] }}</th>
+        </tr>
+        <!-- <form method="post" action="{{ url_for('delete', id=food['_id']) }}" >
+            <input type="submit" value="Delete Food"
+                    onclick="return confirm('Are you sure you want to delete this entry?')">
+        </form> -->
+    {% endfor %}
+
+    </table>
+    </div>
+</body>
+</html>
