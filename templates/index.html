@@ -6,12 +6,32 @@
 </head>
 <body>
     <h1>Food Nutrition Info</h1>
+    
     <hr>
+    
+    <h2> Type food keyword (limited one word) to search, nutrition info is based on 100g</h2>
     <div class="content">
     <form method="post">
         <input type="text" name="content" placeholder="Food name"></input>
         <button type="submit">Search</button>
     </form>
+
+    <hr>
+    
+    <h2> Login for advanced use </h2>
+    <table>
+        <tr> <th align="left">1. multiple words search </th></tr>
+        <tr> <th align="left">2. add food </th></tr>
+        <tr> <th align="left">3. delete food </th></tr>
+        <tr> <th align="left">4. adjust food unit </th></tr>
+    </table>
+    <button onclick="window.location.href='{{ url_for("login") }}';">
+        Login Page
+    </button>
+    <button onclick="window.location.href='{{ url_for("signup") }}';">
+        Signup Page
+    </button>
+    
     <hr>
 
     <table>
@@ -41,12 +61,6 @@
             <th>{{ food["Total Fiber (g)"] }}</th>
             <th>{{ food["Total Fat (g)"] }}</th>
             <th>{{ food["Water (g)"] }}</th>
-            <!-- <th>
-                <form method="post" action="{{ url_for('delete', id=food['_id']) }}" >
-                    <input type="submit" value="Delete Food"
-                        onclick="return confirm('Are you sure you want to delete this entry?')">
-                </form>
-            </th> -->
         </tr>
         
     {% endfor %}

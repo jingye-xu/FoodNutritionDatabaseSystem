@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Nutrition Info</title>
+</head>
+<body>
+    <h1>Food Nutrition Info - Advanced version</h1>
+    
+    <hr>
+    
+    <h2> Add food entry </h2>
+    <h2> Weight has a default value of 100g </h2>
+    <div class="content">
+    <form method="post">
+        <label for="code"> Food code</label><br>
+        <input type="number" name="foodcode" id="code" value="100000"></input><br>
+
+        <label for="description"> Food descriptions </label><br>
+        <input type="text" name="description" id="description" value="description"></input><br>
+
+        <label for="wweia_n"> WWEIA number </label><br>
+        <input type="number" name="wweia_number" id="wweia_n" value="100000"></input><br>
+
+        <label for="wweia_d"> WWEIA description </label><br>
+        <input type="text" name="wweia_description" id="wweia_d" value="description"></input><br>
+
+        <label for="energy"> Energy (kcal) </label><br>
+        <input type="number" name="energy" step="0.1" id="energy" value="20"></input><br>
+
+        <label for="protein"> Protein (g) </label><br>
+        <input type="number" name="protein" step="0.01" id="protein" value="10"></input><br>
+
+        <label for="carbo"> Carbohydrate (g) </label><br>
+        <input type="number" name="carbo" step="0.01" id="carbo" value="10"></input><br>
+
+        <label for="sugar"> Total Sugars (g) </label><br>
+        <input type="number" name="sugar" step="0.01" id="sugar" value="10"></input><br>
+
+        <label for="fiber"> Total Fiber (g) </label><br>
+        <input type="number" name="fiber" step="0.01" id="fiber" value="10"></input><br>
+
+        <label for="fat"> Total Fat (g) </label><br>
+        <input type="number" name="fat" step="0.01" id="fat" value="10"></input><br>
+
+        <label for="water"> Water (g) </label><br>
+        <input type="number" name="water" step="0.01" id="water" value="10"></input><br>
+
+        <label for="weight"> Total weight (g) </label><br>
+        <input type="number" name="weight" min="0.01" step="0.01" id="weight" value="100"></input><br>
+
+        <button type="submit">Add</button>
+
+        <button onclick="window.location.href='{{ url_for("addfood") }}';">
+            Reset
+        </button>
+    </form>
+
+    <hr>
+    
+    <button onclick="window.location.href='{{ url_for("advance") }}';">
+        Back to search page
+    </button>
+    
+</body>
+</html>

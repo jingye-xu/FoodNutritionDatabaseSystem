@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Nutrition Info</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username }}
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+    
+    <hr>
+
+    <h2> Already has account? </h2>
+    <button onclick="window.location.href='{{ url_for("login") }}';">
+        Login Page
+    </button>
+
+    <hr>
+
+    <h2> Just want to use basic version? </h2>
+    <button onclick="window.location.href='{{ url_for("index") }}';">
+        Basic version
+    </button>
+
+</body>
+
+</html>

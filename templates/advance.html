@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Nutrition Info</title>
+</head>
+<body>
+    <h1>Food Nutrition Info - Advanced version</h1>
+    
+    <hr>
+
+    <h2> Type food keywords to search, keywords are seperated by whitespace </h2>
+    <h2> Weight has a default value of 100g </h2>
+    <div class="content">
+    <form method="post">
+        <input type="text" name="content" placeholder="Food names"></input>
+        <input type="number" name="weight" min="0" max="10000" value="100"></input>
+        <button type="submit">Search</button>
+    </form>
+    
+    <hr>
+
+    <h2> Can not find the food?</h2>
+    <button onclick="window.location.href='{{ url_for("addfood") }}';">
+        Press here to add food
+    </button>
+
+    <hr>
+    
+    <h2> You already logged in! You can now use following features:</h2>
+    <table>
+        <tr> <th align="left">1. multiple words search </th></tr>
+        <tr> <th align="left">2. add food </th></tr>
+        <tr> <th align="left">3. delete food </th></tr>
+        <tr> <th align="left">4. adjust food unit </th></tr>
+    </table>
+    
+    <button onclick="window.location.href='{{ url_for("logout") }}';">
+        Press here to logout
+    </button>
+
+    <hr>
+
+    <table>
+        <tr>
+          <th>Food code</th>
+          <th>Main food description</th>
+          <th>WWEIA number</th>
+          <th>WWEIA description</th>
+          <th>Energy (kcal)</th>
+          <th>Protein (g)</th>
+          <th>Carbohydrate (g)</th>
+          <th>Total Sugars (g)</th>
+          <th>Total Fiber (g)</th>
+          <th>Total Fat (g)</th>
+          <th>Water (g)</th>
+        </tr>
+    {% for food in foods %}
+        <tr>
+            <th>{{ food["Food code"] }}</th>
+            <th>{{ food["Main food description"] }}</th>
+            <th>{{ food["WWEIA number"] }}</th>
+            <th>{{ food["WWEIA description"] }}</th>
+            <th>{{ food["Energy (kcal)"] * scale / 100 }}</th>
+            <th>{{ food["Protein (g)"] * scale / 100 }}</th>
+            <th>{{ food["Carbohydrate (g)"] * scale / 100 }}</th>
+            <th>{{ food["Total Sugars (g)"] * scale / 100 }}</th>
+            <th>{{ food["Total Fiber (g)"] * scale / 100 }}</th>
+            <th>{{ food["Total Fat (g)"] * scale / 100 }}</th>
+            <th>{{ food["Water (g)"] * scale / 100 }}</th>
+            <th>
+                <form method="post" action="{{ url_for('delete', id=food['_id']) }}" >
+                    <input type="submit" value="Delete Food"
+                        onclick="return confirm('Are you sure you want to delete this entry?')">
+                </form>
+            </th>
+        </tr>
+        
+    {% endfor %}
+
+    </table>
+    </div>
+</body>
+</html>
