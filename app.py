@@ -4,11 +4,11 @@ from bson.objectid import ObjectId
 import pandas as pd
 from os.path import exists
 import sys
-
+import local_config
 
 app = Flask(__name__)
 
-client = MongoClient('172.16.42.96', 27018)
+client = MongoClient(local_config.database_ip, local_config.database_port)
 
 dbnames = client.list_database_names()
 
@@ -51,4 +51,4 @@ if __name__ == "__main__":
     
     db = client.food
     food_data = db.data
-    app.run(debug=True, host="0.0.0.0", port=5000, ssl_context=('cert.pem', 'key.pem'))
+    app.run(debug=True, host="0.0.0.0", port=int(local_config.webserver_port), ssl_context=('cert.pem', 'key.pem'))
