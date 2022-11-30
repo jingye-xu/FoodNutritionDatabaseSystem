@@ -1,6 +1,10 @@
 # FoodNutritionDatabaseSystem
 This is a project for the database class. 
-Motivaiton: for a healthy life, we want to monitor and control what main nutrients we take in every day. Therefore, we want to design this food nutrition database, which contains basic food nutrition information, such as how much protein or calories are in 100g of boiled eggs.
+
+## Motivaiton: 
+For a healthy life, we want to monitor and control what main nutrients we take in every day. Therefore, we want to design this food nutrition database, which contains basic food nutrition information, such as how much protein or calories are in 100g of boiled eggs.
+
+The system should be open so that new food products can be added. For example, users can upload how many calories and nutrients a bag of Cheeto contains.
 
 ## Usage
 ### 1. Generate self-signed certificates
