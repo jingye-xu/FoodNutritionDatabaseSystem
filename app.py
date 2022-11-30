@@ -8,19 +8,19 @@ import local_config
 
 app = Flask(__name__)
 
-client = MongoClient(local_config.database_ip, local_config.database_port)
+client = MongoClient(local_config.database_ip, int(local_config.database_port))
 
 dbnames = client.list_database_names()
 
-# db = client.flask_db
-# todos = db.todos
-
-
 @app.route('/', methods=('GET', 'POST'))
 def index():
+    # handle the search function
     if request.method=='POST':
-        content = request.form['content']
-        query = {"Main food description": {"$regex": content, "$options" :'i'}}
+        content = request.form['content'].split(" ")
+        and_list = []
+        for i in content:
+            and_list.append({"Main food description": {"$regex": i, "$options" :'i'}})
+        query = {"$and": and_list}
         search_result = food_data.find(query)
         return render_template('index.html', foods=search_result)
 
