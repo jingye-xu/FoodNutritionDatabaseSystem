@@ -1,5 +1,6 @@
 # FoodNutritionDatabaseSystem
-This is a project for the database class
+This is a project for the database class. 
+Motivaiton: for a healthy life, we want to monitor and control what main nutrients we take in every day. Therefore, we want to design this food nutrition database, which contains basic food nutrition information, such as how much protein or calories are in 100g of boiled eggs.
 
 ## Usage
 ### 1. Generate self-signed certificates
